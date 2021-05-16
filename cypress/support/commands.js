@@ -29,15 +29,7 @@ import 'cypress-file-upload';
 Cypress.Commands.add('login',(email, password)=>{
     cy.get('[data-cy="login-email-text-field"]').type(email);
     cy.get('[data-cy="login-password-text-field"]').type(password);
-})
-
-Cypress.Commands.add('loginSubmit',()=>{
     cy.get('[data-cy=login-submit-button]').click();
-})
-
-Cypress.Commands.add('logout',()=>{
-    cy.get('[data-cy=profile-settings-logout-button]').click();
-    
 })
 
 Cypress.Commands.add('msgPrompt',(msg)=>{
@@ -53,35 +45,6 @@ Cypress.Commands.add('changeImg',(imgName, message)=>{
     cy.get('[data-cy=profile-image-upload-label]').attachFile(imgName);
     cy.wait(2000);
     cy.get('[data-cy=toastr-message-container]').should('have.text', message);
-})
-
-Cypress.Commands.add('pwdChange',(currentPwd, newPwd)=>{
-    cy.get('[data-cy=change-password-current-password]').type(currentPwd);
-    cy.get('[data-cy=change-password-new-password]').type(newPwd);
-    cy.get('[data-cy=change-password-confirm-new-password]').type(newPwd);
-    cy.get('[data-cy=change-password-submit-button]').click();
-    cy.get('[data-cy=toastr-message-container]').should('have.text','Password successfully changed!');
-    cy.logout();
-        
-})
-
-Cypress.Commands.add('resetPassword',(currentPwd, newPwd)=>{
-    cy.visit('https://spinkart.neetoauth.net')
-    cy.fixture("credentials").then((user) => {
-        cy.login(user.correct.email,currentPwd);
-    })
-    cy.loginSubmit();
-    cy.get('.bp3-popover-target > .relative').click();
-    cy.get('[data-cy="nav-profile-link"]').click();
-
-    cy.get('[data-cy=profile-settings-change-password-tab]').click();
-
-    cy.get('[data-cy=change-password-current-password]').type(currentPwd);
-    cy.get('[data-cy=change-password-new-password]').type(newPwd);
-    cy.get('[data-cy=change-password-confirm-new-password]').type(newPwd);
-    cy.get('[data-cy=change-password-submit-button]').click();
-    cy.get('[data-cy=toastr-message-container]').should('have.text','Password successfully changed!');
-    cy.logout();
 })
 
 Cypress.Commands.add('emailChange',(newEmail, currentPwd)=>{
