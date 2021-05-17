@@ -54,7 +54,7 @@ describe("NeetoAuth Profile Image upload functionality", () => {
     cy.contains('Profile image successfully removed!').should('be.visible');
   })
 
-  it.only("Updating first name, Change Country, Select timezone, Change date format",() => {
+  it("Updating first name, Change Country, Select timezone, Change date format",() => {
     cy.get('[data-cy=profile-first-name-text-field]').clear().type("Oliver")
     cy.get('[data-cy=select-country-select-container-wrapper]').type('Canada');
     cy.get('[data-cy=select-time-zone-select-container-wrapper]').type('America/Dawson-UTC-07.00');
