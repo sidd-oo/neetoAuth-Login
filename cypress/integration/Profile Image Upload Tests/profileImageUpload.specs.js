@@ -19,12 +19,6 @@ describe("NeetoAuth Profile Image upload functionality", () => {
       cy.uploadImg('wrongFileFormat.pdf','Something went wrong.');
   });
 
-  it("Uploading multiple images file", () => {
-      cy.get('[data-cy="profile-image-upload-file-field"]').attachFile('./lessThan5MB').attachFile('./lessThan5MB');
-      cy.get('[data-cy=toastr-message-container]').eq(0).should('have.text','Something went wrong.')
-      cy.get('[data-cy=toastr-message-container]').eq(1).should('have.text','Something went wrong.')
-  });
-
   it("Uploading new image of allowed file type using change functionality",() => {
     cy.uploadImg('lessThan5MB.jpg','Profile image successfully updated!');
     cy.uploadImg('anotherLessThan5MB.jpg','Profile image successfully updated!');
@@ -33,7 +27,7 @@ describe("NeetoAuth Profile Image upload functionality", () => {
   it("Uploading new image more than 5MB using change functionality",() => {
     cy.uploadImg('lessThan5MB.jpg','Profile image successfully updated!'); 
     cy.wait(5000);   
-    cy.changeImg('anotherMoreThan5MB.jpg','Something went wrong.');
+    cy.uploadImg('anotherMoreThan5MB.jpg','Something went wrong.');
   })
 
   it("Uploading multiple new images using change functionality",() => {

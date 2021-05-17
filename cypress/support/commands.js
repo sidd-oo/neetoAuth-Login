@@ -36,12 +36,12 @@ Cypress.Commands.add('msgPrompt',(msg)=>{
     cy.get('[data-cy=toastr-message-container]').should('have.text', msg);
 })
 
-Cypress.Commands.add('uploadImg',(imgName, message)=>{
+Cypress.Commands.add('uploadImg',(imgName, message) => {
     cy.get('[data-cy="profile-image-upload-file-field"]').attachFile(imgName);
     cy.get('[data-cy=toastr-message-container]').should('have.text', message);
 })
 
-Cypress.Commands.add('changeImg',(imgName, message)=>{
+Cypress.Commands.add('changeImg',(imgName, message) => {
     cy.get('[data-cy=profile-image-upload-label]').attachFile(imgName);
     cy.wait(2000);
     cy.get('[data-cy=toastr-message-container]').should('have.text', message);
