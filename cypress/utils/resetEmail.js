@@ -1,7 +1,7 @@
 import { emailChange } from '../utils/emailChange'
 
 export const resetEmail = (newEmail, currentPassword) => {
-    cy.visit('https://spinkart.neetoauth.net')
+    cy.visit('/')
     cy.fixture("credentials").then((user) => {
         cy.login(newEmail,currentPassword);
     })

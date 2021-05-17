@@ -1,6 +1,5 @@
 export const profileTab = ()=>{
-     cy.viewport(1280,720);
-     cy.visit('https://spinkart.neetoauth.net')
+     cy.visit('/')
      cy.fixture("credentials").then((user) => {
         cy.login(user.correct.email,user.correct.password);
       })

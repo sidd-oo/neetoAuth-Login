@@ -1,7 +1,7 @@
 import { logout } from '../utils/logoutSelector'
 
 export const resetPassword = (currentPwd, newPwd) => {
-    cy.visit('https://spinkart.neetoauth.net')
+    cy.visit('/')
     cy.fixture("credentials").then((user) => {
         cy.login(user.correct.email,currentPwd);
     })

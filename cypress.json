@@ -1,1 +1,5 @@
-{}
+{
+    "baseUrl":"https://spinkart.neetoauth.net",
+    "viewportWidth": 1280,
+    "viewportHeight": 720
+}
