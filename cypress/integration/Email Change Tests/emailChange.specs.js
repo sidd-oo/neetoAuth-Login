@@ -14,33 +14,33 @@
    })
   it("Change email and verify that the old email can't be used for login", () => {
       emailTab();
-      emailChange(userDetails.new.email, userDetails.old.password);
+      emailChange(userDetails.userOne.email, userDetails.userTwo.password);
 
-      cy.login(userDetails.correct.email,userDetails.correct.password);
+      cy.login(userDetails.default.email,userDetails.default.password);
       cy.get('[data-cy=toastr-message-container]').should('have.text','Something went wrong.');
 
-      resetEmail(userDetails.new.email,userDetails.old.password);  
+      resetEmail(userDetails.userOne.email,userDetails.userTwo.password);  
   });
 
   it("Change email and verify that only current email can be used for login", () => {
       emailTab();
-      emailChange(userDetails.new.email, userDetails.old.password);
+      emailChange(userDetails.userOne.email, userDetails.userTwo.password);
 
-      cy.login(userDetails.new.email,userDetails.correct.password);
+      cy.login(userDetails.userOne.email,userDetails.default.password);
       cy.get('[data-cy=heading]').should('have.text',"Profile Settings");
       logout();
 
-      resetEmail(userDetails.new.email,userDetails.old.password);
+      resetEmail(userDetails.userOne.email,userDetails.userTwo.password);
   });
 
   it("Reset the old email and verfify",() => {
       emailTab();
-      emailChange(userDetails.new.email, userDetails.old.password);
+      emailChange(userDetails.userOne.email, userDetails.userTwo.password);
 
-      resetEmail(userDetails.new.email,userDetails.old.password);
+      resetEmail(userDetails.userOne.email,userDetails.userTwo.password);
 
       cy.visit('https://spinkart.neetoauth.net')
-      cy.login(userDetails.old.email,userDetails.old.password);
+      cy.login(userDetails.userTwo.email,userDetails.userTwo.password);
       cy.get('[data-cy=heading]').should('have.text',"Profile Settings");
       logout();
   })

@@ -11,6 +11,6 @@ export const resetEmail = (newEmail, currentPassword) => {
     cy.get('[data-cy=profile-settings-change-email-tab]').click();
     
     cy.fixture("credentials").then((user)=>{
-        emailChange(user.old.email,user.old.password)
+        emailChange(user.userTwo.email,user.userTwo.password)
     })
 }    
