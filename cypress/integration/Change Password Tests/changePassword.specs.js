@@ -16,29 +16,29 @@ describe("NeetoAuth change password functionality", () => {
     
   it("Changing current password and trying to valid it can't login anymore with old password",() => {
       passwordTab();
-      passwordChange(userDetails.old.password, userDetails.new.password);
+      passwordChange(userDetails.userTwo.password, userDetails.userOne.password);
       cy.visit('https://spinkart.neetoauth.net')
-      cy.login(userDetails.correct.email,userDetails.correct.password); 
+      cy.login(userDetails.default.email,userDetails.default.password); 
       cy.get('[data-cy=toastr-message-container]').should('have.text','Something went wrong.');     
-      resetPassword(userDetails.new.password, userDetails.old.password);   
+      resetPassword(userDetails.userOne.password, userDetails.userTwo.password);   
   });
 
   it("Changing current password and trying to valid that it can only login with new current password",() => {
       passwordTab();
-      passwordChange(userDetails.old.password, userDetails.new.password);
+      passwordChange(userDetails.userTwo.password, userDetails.userOne.password);
       cy.visit('https://spinkart.neetoauth.net')
-      cy.login(userDetails.old.email,userDetails.new.password);
+      cy.login(userDetails.userTwo.email,userDetails.userOne.password);
       cy.get('[data-cy=heading]').should('have.text',"Profile Settings");
       logout();
-      resetPassword(userDetails.new.password, userDetails.old.password); 
+      resetPassword(userDetails.userOne.password, userDetails.userTwo.password); 
   });
 
   it("Reset the password and verify",() => {
       passwordTab();
-      passwordChange(userDetails.old.password, userDetails.new.password);
-      resetPassword(userDetails.new.password, userDetails.old.password); 
+      passwordChange(userDetails.userTwo.password, userDetails.userOne.password);
+      resetPassword(userDetails.userOne.password, userDetails.userTwo.password); 
       cy.visit('https://spinkart.neetoauth.net')
-      cy.login(userDetails.old.email,userDetails.old.password);
+      cy.login(userDetails.userTwo.email,userDetails.userTwo.password);
       cy.get('[data-cy=heading]').should('have.text',"Profile Settings");
       logout(); 
   });

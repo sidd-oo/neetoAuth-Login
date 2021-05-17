@@ -3,7 +3,7 @@ import { logout } from '../utils/logoutSelector'
 export const resetPassword = (currentPwd, newPwd) => {
     cy.visit('/')
     cy.fixture("credentials").then((user) => {
-        cy.login(user.correct.email,currentPwd);
+        cy.login(user.default.email,currentPwd);
     })
     
     cy.get('.bp3-popover-target > .relative').click();
