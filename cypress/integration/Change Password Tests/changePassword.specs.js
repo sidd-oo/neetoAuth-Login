@@ -28,7 +28,7 @@ describe("NeetoAuth change password functionality", () => {
       passwordChange(userDetails.userTwo.password, userDetails.userOne.password);
       cy.visit('/')
       cy.login(userDetails.userTwo.email,userDetails.userOne.password);
-      cy.get('[data-cy=heading]').should('have.text',"Profile Settings");
+      cy.loginSuccessAssert();
       logout();
       resetPassword(userDetails.userOne.password, userDetails.userTwo.password); 
   });
@@ -39,7 +39,7 @@ describe("NeetoAuth change password functionality", () => {
       resetPassword(userDetails.userOne.password, userDetails.userTwo.password); 
       cy.visit('/')
       cy.login(userDetails.userTwo.email,userDetails.userTwo.password);
-      cy.get('[data-cy=heading]').should('have.text',"Profile Settings");
+      cy.loginSuccessAssert();
       logout(); 
   });
 

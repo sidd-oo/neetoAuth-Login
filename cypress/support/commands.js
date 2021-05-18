@@ -48,3 +48,7 @@ Cypress.Commands.add('changeImg',(imgName, message) => {
 })
 
 
+Cypress.Commands.add('loginSuccessAssert', () => {
+    cy.get('[data-cy=heading]').should('have.text',"Profile Settings");
+})
+

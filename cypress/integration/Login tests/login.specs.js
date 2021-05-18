@@ -15,7 +15,7 @@
   
   it("Login test with correct email and correct password", () => {
       cy.login(userDetails.default.email,userDetails.default.password);
-      cy.get('[data-cy=heading]').should('have.text',"Profile Settings");
+      cy.loginSuccessAssert();
   });
 
   it("Login test with correct email and wrong password", () => {

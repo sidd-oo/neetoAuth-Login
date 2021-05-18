@@ -27,7 +27,7 @@
       emailChange(userDetails.userOne.email, userDetails.userTwo.password);
 
       cy.login(userDetails.userOne.email,userDetails.default.password);
-      cy.get('[data-cy=heading]').should('have.text',"Profile Settings");
+      cy.loginSuccessAssert();
       logout();
 
       resetEmail(userDetails.userOne.email,userDetails.userTwo.password);
@@ -39,9 +39,9 @@
 
       resetEmail(userDetails.userOne.email,userDetails.userTwo.password);
 
-      cy.visit('https://spinkart.neetoauth.net')
+      cy.visit('/');
       cy.login(userDetails.userTwo.email,userDetails.userTwo.password);
-      cy.get('[data-cy=heading]').should('have.text',"Profile Settings");
+      cy.loginSuccessAssert();
       logout();
   });
 });
