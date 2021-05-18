@@ -4,6 +4,7 @@
    let userDetails;
    let invalidEmail = "wrongEmail@gmail.com"; 
    let invalidPass = "wrongPass";
+   let path = "https://spinkart.neetoauth.net/login";
    
    beforeEach(() => {
      cy.visit('/')
@@ -41,7 +42,7 @@
       });
 
       cy.location().should(loc => {
-          expect(loc.toString()).to.eq('https://spinkart.neetoauth.net/login')
+          expect(loc.toString()).to.eq(path)
       });
 
     });
@@ -53,7 +54,7 @@
       cy.get('[data-cy="login-password-text-field"]').type(userDetails.default.password);
 
       cy.location().should((loc) => {
-          expect(loc.toString()).to.eq('https://spinkart.neetoauth.net/login')
+          expect(loc.toString()).to.eq(path)
       });
     });
 
@@ -64,7 +65,7 @@
       });
 
       cy.location().should(loc => {
-          expect(loc.toString()).to.eq('https://spinkart.neetoauth.net/login')
+          expect(loc.toString()).to.eq(path)
       });
     });
 });
