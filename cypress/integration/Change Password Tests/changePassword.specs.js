@@ -4,7 +4,6 @@
  import { passwordChange } from '../../utils/passwordChange';
  import { resetPassword } from '../../utils/resetPassword';
  import { logout } from '../../utils/logoutSelector';
- import { messageContainer } ''
 
 describe("NeetoAuth change password functionality", () => {
   let userDetails;
