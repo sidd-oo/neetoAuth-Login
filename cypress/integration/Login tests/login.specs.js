@@ -2,6 +2,8 @@
  
  describe("NeetoAuth Login Test", () => {
    let userDetails;
+   let invalidEmail = "wrongEmail@gmail.com"; 
+   let invalidPass = "wrongPass";
    
    beforeEach(() => {
      cy.visit('/')
@@ -9,19 +11,19 @@
        userDetails = user;
      })
   });
-    
+  
   it("Login test with correct email and correct password", () => {
       cy.login(userDetails.default.email,userDetails.default.password);
       cy.get('[data-cy=heading]').should('have.text',"Profile Settings");
   });
 
   it("Login test with correct email and wrong password", () => {
-      cy.login(userDetails.default.email,"WrongPass");
+      cy.login(userDetails.default.email,invalidPass);
       cy.msgPrompt('Something went wrong.');
   });
 
-  it("Login test with wrong email", () => {
-      cy.login("wrongEmail@gmail.com",userDetails.default.password);
+  it("Login test with invalid credentials", () => {
+      cy.login(invalidEmail,userDetails.default.password);
       cy.msgPrompt('Something went wrong.');
   });
 
