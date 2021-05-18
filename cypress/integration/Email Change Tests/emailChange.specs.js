@@ -10,8 +10,8 @@
    beforeEach(() => {
       cy.fixture("credentials").then((user)=>{
         userDetails = user;
-    })
-   })
+    });
+   });
   it("Change email and verify that the old email can't be used for login", () => {
       emailTab();
       emailChange(userDetails.userOne.email, userDetails.userTwo.password);
@@ -43,5 +43,5 @@
       cy.login(userDetails.userTwo.email,userDetails.userTwo.password);
       cy.get('[data-cy=heading]').should('have.text',"Profile Settings");
       logout();
-  })
+  });
 });

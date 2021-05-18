@@ -4,7 +4,7 @@ export const resetPassword = (currentPwd, newPwd) => {
     cy.visit('/')
     cy.fixture("credentials").then((user) => {
         cy.login(user.default.email,currentPwd);
-    })
+    });
     
     cy.get('.bp3-popover-target > .relative').click();
     cy.get('[data-cy="nav-profile-link"]').click();

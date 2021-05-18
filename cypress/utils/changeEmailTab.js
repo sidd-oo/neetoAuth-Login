@@ -1,4 +1,3 @@
-
 export const  emailTab = () => {
      cy.visit('/')
      cy.fixture("credentials").then((user) => {
