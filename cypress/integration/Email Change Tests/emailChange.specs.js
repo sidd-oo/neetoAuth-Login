@@ -17,8 +17,8 @@
       emailChange(userDetails.userOne.email, userDetails.userTwo.password);
 
       cy.login(userDetails.default.email,userDetails.default.password);
-      cy.get('[data-cy=toastr-message-container]').should('have.text','Something went wrong.');
-
+      cy.msgPrompt('Something went wrong.');
+      
       resetEmail(userDetails.userOne.email,userDetails.userTwo.password);  
   });
 
