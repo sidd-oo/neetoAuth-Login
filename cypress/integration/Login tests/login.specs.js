@@ -26,7 +26,7 @@
   });
 
   it("Login test with wrong email and wrong password", () => {
-      cy.login(inValidUser.email,invalidUser.password);
+      cy.login(invalidUser.email,invalidUser.password);
       cy.msgPrompt('Something went wrong.');
   });
 

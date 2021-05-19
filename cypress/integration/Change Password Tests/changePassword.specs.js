@@ -6,39 +6,43 @@
  import { logout } from '../../utils/logoutSelector';
 
 describe("NeetoAuth change password functionality", () => {
-  let userDetails;
+   let validUser;
+   let invalidUser;
 
-  beforeEach(() => {
-    cy.fixture("credentials").then( user => {
-      userDetails = user;
-    })
+   beforeEach(() => {
+     cy.fixture("validUser").then( credentials => {
+       validUser = credentials;
+     })
+     cy.fixture("invalidUser").then( credentials => {
+       invalidUser = credentials;
+     })
   });
     
   it("Changing current password and trying to valid it can't login anymore with old password",() => {
-      passwordTab();
-      passwordChange(userDetails.userTwo.password, userDetails.userOne.password);
+      passwordTab(validUser.email, validUser.password);
+      passwordChange(validUser.password, invalidUser.password);
       cy.visit('/')
-      cy.login(userDetails.default.email,userDetails.default.password); 
+      cy.login(validUser.email,validUser.password); 
       cy.msgPrompt('Something went wrong.'); 
-      resetPassword(userDetails.userOne.password, userDetails.userTwo.password);   
+      resetPassword(validUser.email, invalidUser.password, validUser.password);   
   });
 
   it("Changing current password and trying to valid that it can only login with new current password",() => {
-      passwordTab();
-      passwordChange(userDetails.userTwo.password, userDetails.userOne.password);
+      passwordTab(validUser.email, validUser.password);
+      passwordChange(validUser.password, invalidUser.password);
       cy.visit('/')
-      cy.login(userDetails.userTwo.email,userDetails.userOne.password);
+      cy.login(validUser.email,invalidUser.password);
       cy.loginSuccessAssert();
       logout();
-      resetPassword(userDetails.userOne.password, userDetails.userTwo.password); 
+      resetPassword(validUser.email, invalidUser.password, validUser.password);
   });
 
   it("Reset the password and verify",() => {
-      passwordTab();
-      passwordChange(userDetails.userTwo.password, userDetails.userOne.password);
-      resetPassword(userDetails.userOne.password, userDetails.userTwo.password); 
+      passwordTab(validUser.email, validUser.password);
+      passwordChange(validUser.password, invalidUser.password);
+      resetPassword(validUser.email, invalidUser.password, validUser.password);
       cy.visit('/')
-      cy.login(userDetails.userTwo.email,userDetails.userTwo.password);
+      cy.login(validUser.email,validUser.password);
       cy.loginSuccessAssert();
       logout(); 
   });
