@@ -43,7 +43,6 @@ Cypress.Commands.add('uploadImg',(imgName, message) => {
 
 Cypress.Commands.add('changeImg',(imgName, message) => {
     cy.get('[data-cy=profile-image-upload-label]').attachFile(imgName);
-    cy.wait(2000);
     cy.get('[data-cy=toastr-message-container]').should('have.text', message);
 })
 

@@ -46,7 +46,6 @@ describe("NeetoAuth Profile Image upload functionality", () => {
   it("Uploading unallowed file type (.pdf) using change functionality",() => {
     profileTab(validUser.email, validUser.password);
     cy.uploadImg('lessThan5MB.jpg','Profile image successfully updated!');  
-    cy.wait(5000);
     cy.uploadImg('wrongFileFormat.pdf','Something went wrong.');
     //This test case is failing, there should be warning message like "Something went wrong" because we are uploading a file of unallowed type (.pdf)
   });
