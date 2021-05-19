@@ -46,7 +46,7 @@
       resetEmail(invalidUser.email, validUser.email, validUser.password);  
 
       cy.visit('/');
-      cy.login(userDetails.userTwo.email,userDetails.userTwo.password);
+      cy.login(validUser.email,validUser.password);
       cy.loginSuccessAssert();
       logout();
   });
