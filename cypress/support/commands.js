@@ -26,13 +26,13 @@
 
 import 'cypress-file-upload';
 
-Cypress.Commands.add('login',(email, password)=>{
+Cypress.Commands.add('login',(email, password) => {
     cy.get('[data-cy="login-email-text-field"]').type(email);
     cy.get('[data-cy="login-password-text-field"]').type(password);
     cy.get('[data-cy=login-submit-button]').click();
 })
 
-Cypress.Commands.add('msgPrompt',(msg)=>{
+Cypress.Commands.add('msgPrompt',(msg) => {
     cy.get('[data-cy=toastr-message-container]').should('have.text', msg);
 })
 
