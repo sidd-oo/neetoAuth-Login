@@ -4,6 +4,7 @@
  import { logout } from '../../utils/logoutSelector'
  import { emailChange } from '../../utils/emailChange'
  import { resetEmail } from '../../utils/resetEmail'
+import { texts } from '../../constants/texts/text';
 
  describe("NeetoAuth Email Change Functionality", () => {
    let validUser;
@@ -23,7 +24,7 @@
       emailChange(invalidUser.email, validUser.password);
 
       cy.login(validUser.email,validUser.password);
-      cy.msgPrompt('Something went wrong.');
+      cy.msgPrompt(texts.wentWrong);
       
       resetEmail(invalidUser.email, validUser.email, validUser.password);  
   });
