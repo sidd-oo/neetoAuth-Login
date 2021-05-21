@@ -4,6 +4,7 @@
  import { passwordChange } from '../../utils/passwordChange';
  import { resetPassword } from '../../utils/resetPassword';
  import { logout } from '../../utils/logoutSelector';
+ import { texts } from '../../constants/texts/text';
 
 describe("NeetoAuth change password functionality", () => {
    let validUser;
@@ -23,7 +24,7 @@ describe("NeetoAuth change password functionality", () => {
       passwordChange(validUser.password, invalidUser.password);
       cy.visit('/')
       cy.login(validUser.email,validUser.password); 
-      cy.msgPrompt('Something went wrong.'); 
+      cy.msgPrompt(texts.wentWrong); 
       resetPassword(validUser.email, invalidUser.password, validUser.password);   
   });
 
