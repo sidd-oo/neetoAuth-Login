@@ -6,7 +6,7 @@ export const passwordChange = (currentPassword, newPassword) => {
     cy.get(passwordChangeSelector.currentPasssword).type(currentPassword);
     cy.get(passwordChangeSelector.changePassword).type(newPassword);
     cy.get(passwordChangeSelector.confirmPassword).type(newPassword);
-    cy.get(passwordChangeSelector.submitBtn).click();
+    cy.get(passwordChangeSelector.submitButton).click();
     cy.msgPrompt(texts.passwordSuccesfullyChanged); 
     logout();       
 }

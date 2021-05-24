@@ -28,12 +28,12 @@ export const tabs = {
 export const emailChangeSelectors = {
     emailField: '[data-cy=change-email-new-email-text-field]',
     passwordField: '[data-cy=change-email-current-password-text-field]',
-    submitBtn: '[data-cy=change-email-submit-button]',
+    submitButton: '[data-cy=change-email-submit-button]',
 };
 
 export const passwordChangeSelector = {
     currentPasssword: '[data-cy=change-password-current-password]',
     changePassword: '[data-cy=change-password-new-password]',
     confirmPassword: '[data-cy=change-password-confirm-new-password]',
-    submitBtn: '[data-cy=change-password-submit-button]',
+    submitButton: '[data-cy=change-password-submit-button]',
 };
