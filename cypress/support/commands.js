@@ -52,4 +52,3 @@ Cypress.Commands.add('changeImg',(imgName, message) => {
 Cypress.Commands.add('loginSuccessAssert', () => {
     cy.get(loginSelectors.loginSuccessful).should('have.text', texts.dashboardHeading);
 })
-
