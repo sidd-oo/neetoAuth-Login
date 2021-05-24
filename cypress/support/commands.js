@@ -25,29 +25,31 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import 'cypress-file-upload';
+import { loginSelectors, profileImageUploadSelector } from '../constants/selectors/selector'
+import { texts } from '../constants/texts/text'
 
 Cypress.Commands.add('login',(email, password) => {
-    cy.get('[data-cy="login-email-text-field"]').type(email);
-    cy.get('[data-cy="login-password-text-field"]').type(password);
-    cy.get('[data-cy=login-submit-button]').click();
+    cy.get(loginSelectors.emailField).type(email);
+    cy.get(loginSelectors.passwordField).type(password);
+    cy.get(loginSelectors.loginSubmit).click();
 })
 
 Cypress.Commands.add('msgPrompt',(msg) => {
-    cy.get('[data-cy=toastr-message-container]').should('have.text', msg);
+    cy.get(profileImageUploadSelector.toasterMessageContainer).should('have.text', msg);
 })
 
 Cypress.Commands.add('uploadImg',(imgName, message) => {
-    cy.get('[data-cy="profile-image-upload-file-field"]').attachFile(imgName);
-    cy.get('[data-cy=toastr-message-container]').should('have.text', message);
+    cy.get(profileImageUploadSelector.uploadImg).attachFile(imgName);
+    cy.get(profileImageUploadSelector.toasterMessageContainer).should('have.text', message);
 })
 
 Cypress.Commands.add('changeImg',(imgName, message) => {
-    cy.get('[data-cy=profile-image-upload-label]').attachFile(imgName);
-    cy.get('[data-cy=toastr-message-container]').should('have.text', message);
+    cy.get(profileImageUploadSelector.changeImg).attachFile(imgName);
+    cy.get(profileImageUploadSelector.toasterMessageContainer).should('have.text', message);
 })
 
 
 Cypress.Commands.add('loginSuccessAssert', () => {
-    cy.get('[data-cy=heading]').should('have.text',"Profile Settings");
+    cy.get(loginSelectors.loginSuccessful).should('have.text', texts.dashboardHeading);
 })
 

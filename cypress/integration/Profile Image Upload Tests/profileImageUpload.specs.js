@@ -2,7 +2,7 @@
 
 import { profileTab } from '../../utils/profileTab'
 import { profileImageUploadSelector } from '../../constants/selectors/selector'
- import { texts } from '../../constants/texts/text'
+import { texts } from '../../constants/texts/text'
 
 describe("NeetoAuth Profile Image upload functionality", () => {
   let validUser;
@@ -66,7 +66,7 @@ describe("NeetoAuth Profile Image upload functionality", () => {
     cy.get(profileImageUploadSelector.timezone).type('America/Dawson-UTC-07.00');
     cy.get(profileImageUploadSelector.DDMMYY).click();
     cy.get(profileImageUploadSelector.profileSubmit).click();
-    cy.get(profileImageUploadSelector.toasterMessageContainer).should('have.text', texts.profileUpdateMeesage);  
+    cy.get(profileImageUploadSelector.toasterMessageContainer).should('have.text', texts.profileUpdateMessage);  
   });
 
 });

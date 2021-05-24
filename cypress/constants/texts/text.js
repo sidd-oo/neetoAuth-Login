@@ -1,5 +1,6 @@
 export const texts = {
     wentWrong : 'Something went wrong.',
     imageSucessMessage : 'Profile image successfully updated!', 
-    profileUpdateMeesage : "Profile successfully updated!"
-}
+    profileUpdateMessage : "Profile successfully updated!",
+    dashboardHeading : "Profile Settings"
+};
