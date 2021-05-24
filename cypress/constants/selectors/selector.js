@@ -22,6 +22,15 @@ export const tabs = {
     emailChangeTabClick: '[data-cy=profile-settings-change-email-tab]',
     passwordChangeTabClick: '[data-cy=profile-settings-change-password-tab]',
     profileTabClick: '[data-cy="nav-profile-link"]',
-}
+};
 
+export const emailChangeSelectors = {
+    emailField: '[data-cy=change-email-new-email-text-field]',
+    passwordField: '[data-cy=change-email-current-password-text-field]',
+    submitBtn: '[data-cy=change-email-submit-button]',
+};
+
+export const passwordChangeSelector = {
+
+};
 
