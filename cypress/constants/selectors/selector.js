@@ -22,6 +22,7 @@ export const tabs = {
     emailChangeTabClick: '[data-cy=profile-settings-change-email-tab]',
     passwordChangeTabClick: '[data-cy=profile-settings-change-password-tab]',
     profileTabClick: '[data-cy="nav-profile-link"]',
+    logout: '[data-cy=profile-settings-logout-button]'
 };
 
 export const emailChangeSelectors = {
@@ -36,4 +37,3 @@ export const passwordChangeSelector = {
     confirmPassword: '[data-cy=change-password-confirm-new-password]',
     submitBtn: '[data-cy=change-password-submit-button]',
 };
-

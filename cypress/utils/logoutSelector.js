@@ -1,3 +1,5 @@
+import { tabs } from '../constants/selectors/selector'
+
 export const logout = () => {
-    cy.get('[data-cy=profile-settings-logout-button]').click(); 
+    cy.get(tabs.logout).click(); 
 }
