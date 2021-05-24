@@ -1,5 +1,5 @@
-import { tabs } from '../constants/selectors/selector'
+import { common } from '../constants/selectors/common'
 
 export const logout = () => {
-    cy.get(tabs.logout).click(); 
+    cy.get(common.logout).click(); 
 }

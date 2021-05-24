@@ -1,11 +1,12 @@
-import { tabs, loginSelectors } from '../constants/selectors/selector'
+import { common } from '../constants/selectors/common'
+import { loginSelectors } from '../constants/selectors/login'
 
 export const passwordTab = (email, password) => {
     cy.visit('/')
     cy.login(email, password);
     
     cy.get(loginSelectors.profileIcon).click();
-    cy.get(tabs.profileTabClick).click();
+    cy.get(common.profileTabClick).click();
 
-    cy.get(tabs.passwordChangeTabClick).click();
+    cy.get(common.passwordChangeTabClick).click();
 }

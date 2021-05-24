@@ -25,7 +25,8 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import 'cypress-file-upload';
-import { loginSelectors, profileImageUploadSelector } from '../constants/selectors/selector'
+import { common } from '../constants/selectors/common';
+import { loginSelectors } from '../constants/selectors/login'
 import { texts } from '../constants/texts/text'
 
 Cypress.Commands.add('login',(email, password) => {
@@ -35,7 +36,7 @@ Cypress.Commands.add('login',(email, password) => {
 })
 
 Cypress.Commands.add('msgPrompt',(msg) => {
-    cy.get(profileImageUploadSelector.toasterMessageContainer).should('have.text', msg);
+    cy.get(common.toasterMessageContainer).should('have.text', msg);
 })
 
 Cypress.Commands.add('loginSuccessAssert', () => {

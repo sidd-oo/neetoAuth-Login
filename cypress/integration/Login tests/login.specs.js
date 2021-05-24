@@ -1,6 +1,6 @@
  /// <reference types="cypress" />
  
- import { loginSelectors } from '../../constants/selectors/selector'
+ import { loginSelectors } from '../../constants/selectors/login'
  import { routes } from '../../constants/routes/routes'
  import { texts } from '../../constants/texts/text'
 

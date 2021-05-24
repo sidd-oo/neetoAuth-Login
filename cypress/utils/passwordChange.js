@@ -1,5 +1,5 @@
 import { logout } from '../utils/logoutSelector'
-import { passwordChangeSelector } from '../constants/selectors/selector'
+import { passwordChangeSelector } from '../constants/selectors/profileSettings'
 import { texts } from '../constants/texts/text'
 
 export const passwordChange = (currentPassword, newPassword) => {

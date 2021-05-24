@@ -1,6 +1,7 @@
-import { profileImageUploadSelector } from '../constants/selectors/selector'
+import { common } from '../constants/selectors/common';
+import { profileImageUploadSelector } from '../constants/selectors/profileSettings'
 
 export const changeImg = (imgName, message) => {
     cy.get(profileImageUploadSelector.changeImg).attachFile(imgName);
-    cy.get(profileImageUploadSelector.toasterMessageContainer).should('have.text', message);
+    cy.get(common.toasterMessageContainer).should('have.text', message);
 }

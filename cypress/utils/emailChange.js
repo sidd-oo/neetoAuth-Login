@@ -1,5 +1,5 @@
 import { logout } from '../utils/logoutSelector';
-import { emailChangeSelectors } from '../constants/selectors/selector'
+import { emailChangeSelectors } from '../constants/selectors/emailChange'
 import { texts } from '../constants/texts/text'
 
 export const emailChange = (newEmail, currentPwd) => {
