@@ -1,12 +1,13 @@
 import { emailChange } from '../utils/emailChange'
+import { loginSelectors, tabs } from '../constants/selectors/selector'
 
 export const resetEmail = (email, newEmail, currentPassword) => {
     cy.visit('/')
     cy.login(email,currentPassword);
 
-    cy.get('.bp3-popover-target > .relative').click();
-    cy.get('[data-cy="nav-profile-link"]').click();
+    cy.get(loginSelectors.profileIcon).click();
+    cy.get(tabs.profileTabClick).click();
     
-    cy.get('[data-cy=profile-settings-change-email-tab]').click();
+    cy.get(tabs.emailChangeTabClick).click();
     emailChange(newEmail, currentPassword);
 }    
