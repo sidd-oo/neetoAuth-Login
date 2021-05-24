@@ -38,17 +38,6 @@ Cypress.Commands.add('msgPrompt',(msg) => {
     cy.get(profileImageUploadSelector.toasterMessageContainer).should('have.text', msg);
 })
 
-Cypress.Commands.add('uploadImg',(imgName, message) => {
-    cy.get(profileImageUploadSelector.uploadImg).attachFile(imgName);
-    cy.get(profileImageUploadSelector.toasterMessageContainer).should('have.text', message);
-})
-
-Cypress.Commands.add('changeImg',(imgName, message) => {
-    cy.get(profileImageUploadSelector.changeImg).attachFile(imgName);
-    cy.get(profileImageUploadSelector.toasterMessageContainer).should('have.text', message);
-})
-
-
 Cypress.Commands.add('loginSuccessAssert', () => {
     cy.get(loginSelectors.loginSuccessful).should('have.text', texts.dashboardHeading);
 })
