@@ -1,3 +1,3 @@
 export const routes = {
-    path: 'https://spinkart.neetoauth.net/login',
+    loginPath: 'https://spinkart.neetoauth.net/login',
 }

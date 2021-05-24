@@ -25,12 +25,12 @@
 
   it("Login test with correct email and wrong password", () => {
       cy.login(validUser.email,invalidUser.password);
-      cy.msgPrompt(texts.wentWrong);
+      cy.msgPrompt(texts.errorMessage);
   });
 
   it("Login test with wrong email and wrong password", () => {
       cy.login(invalidUser.email,invalidUser.password);
-      cy.msgPrompt(texts.wentWrong);
+      cy.msgPrompt(texts.errorMessage);
   });
 
   it("Login test with empty email field and empty password field", () => {

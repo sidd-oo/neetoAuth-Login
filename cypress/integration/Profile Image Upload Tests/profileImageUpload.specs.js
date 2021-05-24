@@ -24,12 +24,12 @@ describe("NeetoAuth Profile Image upload functionality", () => {
 
   it("Uploading image more than 5MB", () => {
     profileTab(validUser.email, validUser.password);
-      cy.uploadImg('moreThan5MB.jpg', texts.wentWrong);
+      cy.uploadImg('moreThan5MB.jpg', texts.errorMessage);
   });
 
   it("Uploading unallowed file type (.pdf)", () => {
     profileTab(validUser.email, validUser.password);
-      cy.uploadImg('wrongFileFormat.pdf', texts.wentWrong);
+      cy.uploadImg('wrongFileFormat.pdf', texts.errorMessage);
   });
 
   it("Uploading new image of allowed file type using change functionality",() => {
@@ -41,14 +41,14 @@ describe("NeetoAuth Profile Image upload functionality", () => {
   it("Uploading new image more than 5MB using change functionality",() => {
     profileTab(validUser.email, validUser.password);
     cy.uploadImg('lessThan5MB.jpg',texts.imageSuccessMessage);  
-    cy.changeImg('anotherMoreThan5MB.jpg', texts.wentWrong);
+    cy.changeImg('anotherMoreThan5MB.jpg', texts.errorMessage);
     //This test case is failing, there should be warning message like "Something went wrong" because we are uploading image of unallowed size.
   });
 
   it("Uploading unallowed file type (.pdf) using change functionality",() => {
     profileTab(validUser.email, validUser.password);
     cy.uploadImg('lessThan5MB.jpg',texts.imageSuccessMessage);  
-    cy.uploadImg('wrongFileFormat.pdf', texts.wentWrong);
+    cy.uploadImg('wrongFileFormat.pdf', texts.errorMessage);
     //This test case is failing, there should be warning message like "Something went wrong" because we are uploading a file of unallowed type (.pdf)
   });
 

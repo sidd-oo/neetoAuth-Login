@@ -24,7 +24,7 @@ describe("NeetoAuth change password functionality", () => {
       passwordChange(validUser.password, invalidUser.password);
       cy.visit('/')
       cy.login(validUser.email,validUser.password); 
-      cy.msgPrompt(texts.wentWrong); 
+      cy.msgPrompt(texts.errorMessage); 
       resetPassword(validUser.email, invalidUser.password, validUser.password);   
   });
 

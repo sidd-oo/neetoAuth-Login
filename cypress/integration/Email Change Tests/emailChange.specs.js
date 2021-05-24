@@ -24,7 +24,7 @@
       emailChange(invalidUser.email, validUser.password);
 
       cy.login(validUser.email,validUser.password);
-      cy.msgPrompt(texts.wentWrong);
+      cy.msgPrompt(texts.errorMessage);
       
       resetEmail(invalidUser.email, validUser.email, validUser.password);  
   });
