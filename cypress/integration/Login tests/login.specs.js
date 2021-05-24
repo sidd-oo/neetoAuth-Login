@@ -42,7 +42,7 @@
       });
 
       cy.location().should(loc => {
-          expect(loc.toString()).to.eq(routes.path)
+          expect(loc.toString()).to.eq(routes.loginPath)
       });
 
     });
@@ -54,7 +54,7 @@
       cy.get(loginSelectors.passwordField).type(validUser.password);
 
       cy.location().should((loc) => {
-          expect(loc.toString()).to.eq(routes.path)
+          expect(loc.toString()).to.eq(routes.loginPath)
       });
     });
 
@@ -65,7 +65,7 @@
       });
 
       cy.location().should(loc => {
-          expect(loc.toString()).to.eq(routes.path)
+          expect(loc.toString()).to.eq(routes.loginPath)
       });
     });
 });
